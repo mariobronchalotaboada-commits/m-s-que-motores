@@ -1,86 +1,71 @@
 <HTML>
 <HEAD>
-<TITLE>Más que Motores | Cultura Racing</TITLE>
+<TITLE>Más que Motores</TITLE>
 <meta charset="UTF-8">
-<meta name="author" content="Mario Bronchalo">
 <script>
-function mostrarCoche(idMostrar) {
-var secciones = ['bienvenida', 'nissan', 'suzuki', 'datsun'];
-for (var i = 0; i < secciones.length; i++) {
-document.getElementById(secciones[i]).style.display = 'none';
-}
-document.getElementById(idMostrar).style.display = 'block';
+function ver(id) {
+var c = ['bienvenida','nissan','suzuki','datsun'];
+for(var i=0; i<c.length; i++) document.getElementById(c[i]).style.display='none';
+document.getElementById(id).style.display='block';
 }
 </script>
 </HEAD>
-<BODY bgcolor="#0a0a0c" text="#ffffff" style="margin:0; padding:0;">
-<div id="contenedorPagina" style="width:100%; height:100%;">
-<div id="contenedorCabecera" style="width:100%; height:18%; border-bottom:2px solid #ff2a35; float:left; background-color:Maroon; padding: 10px; text-align: center; box-sizing: border-box;">
-<H1 style="font-family: arial; margin: 0; font-size: 32px;">MÁS QUE MOTORES</H1>
-<div style="margin-top: 15px; font-family: arial; font-size: 16px;">
-<A href="#" onclick="mostrarCoche('nissan'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Nissan 350Z ]</B></A>
-<A href="#" onclick="mostrarCoche('suzuki'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Suzuki Samurai ]</B></A>
-<A href="#" onclick="mostrarCoche('datsun'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Datsun 240Z ]</B></A>
+<BODY bgcolor="white" text="black" style="margin:0; font-family:arial;">
+<div style="width:100%; background:red; color:white; text-align:center; padding:15px; box-sizing:border-box;">
+<H1 style="margin:0; font-size:28px;">MÁS QUE MOTORES</H1>
+<div style="margin-top:10px; font-size:15px;">
+<A href="#" onclick="ver('nissan'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Nissan 350Z ]</B></A>
+<A href="#" onclick="ver('suzuki'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Suzuki Samurai ]</B></A>
+<A href="#" onclick="ver('datsun'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Datsun 240Z ]</B></A>
 </div>
 </div>
-<div id="contenedorCuerpo" style="width:100%; height:82%; border:0px">
-<div id="contenedorIzqda" style="width:25%; height:100%; border:0px; float:left; padding: 15px; background-color: #141419; overflow-y: auto; box-sizing: border-box; text-align: center;">
-<p><IMG src="motor.jpg" width="100%" height="auto" alt="Motor" style="border: 1px solid #333;"></p>
-<H2 style="color: Red; font-family: arial; font-size: 18px; text-align: left;">Videos Recomendados</H2>
-<P style="font-family: arial; font-size: 13px; text-align: justify; color: #b3b3b3;">Reportajes brutales hechos por la comunidad:</P>
-<UL type="circle" style="padding-left: 15px; font-family: arial; font-size: 14px; text-align: left;">
-<LI style="margin-bottom: 20px;">
-<B>Para el Nissan:</B><BR>
-<A href="https://www.youtube.com/watch?v=MPRESYdHyUU" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver vídeo del 350Z</I></A>
-</LI>
-<LI style="margin-bottom: 20px;">
-<B>Para el Suzuki:</B><BR>
-<A href="https://www.youtube.com/watch?v=q8UN_G6G_VY" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver vídeo del Suzuki</I></A>
-</LI>
-<LI style="margin-bottom: 20px;">
-<B>Para el Datsun:</B><BR>
-<A href="https://www.youtube.com/watch?v=NetrSVI1GN8" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver documental Datsun</I></A>
-</LI>
+<div style="width:100%;">
+<div style="width:25%; float:left; padding:15px; background:#0a0a0c; color:white; box-sizing:border-box; text-align:center;">
+<p><IMG src="motor.jpg" width="100%" height="auto" style="border:1px solid #333;"></p>
+<H2 style="color:red; font-size:16px; text-align:left;">Videos</H2>
+<UL type="circle" style="padding-left:15px; text-align:left; font-size:13px;">
+<LI><A href="https://www.youtube.com/watch?v=MPRESYdHyUU" target="_blank" style="color:red;">Vídeo 350Z</A></LI>
+<LI><A href="https://www.youtube.com/watch?v=q8UN_G6G_VY" target="_blank" style="color:red;">Vídeo Suzuki</A></LI>
+<LI><A href="https://www.youtube.com/watch?v=NetrSVI1GN8" target="_blank" style="color:red;">Vídeo Datsun</A></LI>
 </UL>
 </div>
-<div id="contenedorDcha" style="width:75%; height:100%; border:0px; float:left; padding: 20px; overflow-y: auto; box-sizing: border-box;">
-<div id="bienvenida" style="display: block; text-align: center; padding-top: 50px;">
-<H2 style="color: Red; font-family: arial; font-size: 32px;">¡BIENVENIDO A MÁS QUE MOTORES!</H2>
-<P style="font-family: arial; font-size: 18px; color: #b3b3b3; max-width: 600px; margin: 20px auto;">Cultura racing desde el origen. Selecciona cualquiera de los modelos del menú superior para ver su ficha técnica e historia individual.</P>
+<div style="width:75%; float:left; padding:25px; box-sizing:border-box;">
+<div id="bienvenida" style="display:block; text-align:center; padding-top:40px;">
+<H2 style="color:red; font-size:32px;">¡BIENVENIDO A MÁS QUE MOTORES!</H2>
+<P style="font-size:16px; max-width:550px; margin:20px auto;">Cultura racing desde el origen. Selecciona un modelo arriba para ver su ficha técnica.</P>
 </div>
-<div id="nissan" style="display: none;">
-<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Nissan 350Z</H2>
-<p style="text-align: center;"><IMG src="nissan 350z.jfif" width="600" height="auto" alt="Nissan 350Z" style="border: 2px solid #333;"></p>
-<P style="font-family: arial; font-size: 16px; text-align: justify;">Un icono del tuning mundial y el rey indiscutible del drift. El Nissan 350Z revivió la legendaria saga <I>'Z'</I> a principios de los 2000 con una receta perfecta: motor delantero atmosférico, tracción trasera y un reparto de pesos ideal.</P>
-<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
-<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Nissan</TH></TR>
-<TR><TD width="40%"><B>Motorización:</B></TD><TD>3.5L V6 Atmosférico (313 CV)</TD></TR>
-<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>5.7 segundos</TD></TR>
-<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 12.000 € y 22.000 €</TD></TR>
+<div id="nissan" style="display:none;">
+<H2 style="color:red; font-size:26px; margin:0;">Nissan 350Z</H2>
+<p style="text-align:center;"><IMG src="nissan 350z.jfif" width="550" height="auto" style="border:2px solid #333;"></p>
+<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Presentado a finales de 2002, este modelo revivió la mítica saga Z de Nissan. Se convirtió rápidamente en un icono global de la cultura del tuning, el drift y los videojuegos gracias a su tracción trasera y motor atmosférico.</P>
+<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
+<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Nissan</TH></TR>
+<TR><TD><B>Motorización:</B></TD><TD>3.5L V6 Atmosférico (313 CV)</TD></TR>
+<TR><TD><B>Precio Original (2003):</B></TD><TD>Desde 33.000 € (Versión básica de acceso)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>12.000 € - 22.000 € (Usado en revalorización)</TD></TR>
 </TABLE>
 </div>
-<div id="suzuki" style="display: none;">
-<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Suzuki Samurai</H2>
-<p style="text-align: center;"><IMG src="suzuki samurai.png" width="600" height="auto" alt="Suzuki Samurai" style="border: 2px solid #333;"></p>
-<P style="font-family: arial; font-size: 16px; text-align: justify;">Un titán del Off-Road en formato miniatura. El Suzuki Samurai demostró al mundo entero que no hace falta un todoterreno gigante y pesado para superar las rutas más extremas del planeta gracias a su ligereza y reductora.</P>
-<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
-<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Suzuki</TH></TR>
-<TR><TD width="40%"><B>Motorización:</B></TD><TD>1.3L de 4 cilindros en línea (69 CV)</TD></TR>
-<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>16.8 segundos</TD></TR>
-<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 4.000 € y 8.500 €</TD></TR>
+<div id="suzuki" style="display:none;">
+<H2 style="color:red; font-size:26px; margin:0;">Suzuki Samurai</H2>
+<p style="text-align:center;"><IMG src="suzuki samurai.png" width="550" height="auto" style="border:2px solid #333;"></p>
+<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Lanzado originalmente en 1985 como evolución del SJ413, este pequeño todoterreno demostró que la ligereza y una buena reductora valían más que un tamaño gigante para superar terrenos extremos.</P>
+<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
+<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Suzuki</TH></TR>
+<TR><TD><B>Motorización:</B></TD><TD>1.3L de 4 cilindros (69 CV)</TD></TR>
+<TR><TD><B>Precio Original (Años 80/90):</B></TD><TD>Aprox. 9.000 € (Equivalente al cambio en su época)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>4.000 € - 8.500 € (Clásico cotizado)</TD></TR>
 </TABLE>
 </div>
-<div id="datsun" style="display: none;">
-<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Datsun 240Z</H2>
-<p style="text-align: center;"><IMG src="darsun 240z.jpg" width="600" height="auto" alt="Datsun 240Z" style="border: 2px solid #333;"></p>
-<P style="font-family: arial; font-size: 16px; text-align: justify;">El origen del mito. Lanzado a finales de los años 60, el Datsun 240Z rompió los esquemas del mercado ofreciendo las prestaciones y la belleza de un deportivo clásico con la fiabilidad e ingeniería japonesa.</P>
-<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
-<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Datsun</TH></TR>
-<TR><TD width="40%"><B>Motorización:</B></TD><TD>2.4L de 6 cilindros en línea (151 CV)</TD></TR>
-<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>8.0 segundos</TD></TR>
-<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 30.000 € y más de 60.000 €</TD></TR>
+<div id="datsun" style="display:none;">
+<H2 style="color:red; font-size:26px; margin:0;">Datsun 240Z</H2>
+<p style="text-align:center;"><IMG src="darsun 240z.jpg" width="550" height="auto" style="border:2px solid #333;"></p>
+<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Introducido en noviembre de 1969, rompió los esquemas del mercado internacional al ofrecer la silueta y potencia de deportivos europeos caros con el precio y la robustez de la ingeniería japonesa.</P>
+<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
+<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Datsun</TH></TR>
+<TR><TD><B>Motorización:</B></TD><TD>2.4L de 6 cilindros en línea (151 CV)</TD></TR>
+<TR><TD><B>Precio Original (1970):</B></TD><TD>Aprox. 3.500 $ (Lanzamiento en EE.UU.)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>30.000 € - 60.000 € (Pieza de colección histórica)</TD></TR>
 </TABLE>
-</div>
 </div>
 </div>
 </div>
