@@ -1,410 +1,88 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Más que Motores | Cultura Racing</title>
-    <style>
-        /* ESTILOS GENERALES - ESTILO DE CARRERAS */
-        :root {
-            --bg-principal: #0a0a0c;
-            --bg-tarjetas: #141419;
-            --rojo-racing: #e50914;
-            --texto-blanco: #ffffff;
-            --texto-gris: #a0a0a5;
-            --borde-rojo: #ff2a35;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Impact', 'Arial Black', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-principal);
-            color: var(--texto-blanco);
-            background-attachment: fixed;
-            background-size: cover;
-        }
-
-        /* CABECERA (HEADER) */
-        header {
-            background: linear-gradient(135deg, #000 70%, var(--rojo-racing) 100%);
-            padding: 30px 20px;
-            text-align: center;
-            border-bottom: 5px solid var(--borde-rojo);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            box-shadow: 0 4px 15px rgba(229, 9, 20, 0.4);
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            color: var(--texto-blanco);
-            text-shadow: 3px 3px 0px #000;
-        }
-
-        header h1 span {
-            color: var(--rojo-racing);
-        }
-
-        /* CONTENEDOR PRINCIPAL: SIDEBAR + CONTENIDO */
-        .contenedor-web {
-            display: flex;
-            max-width: 1400px;
-            margin: 30px auto;
-            padding: 0 20px;
-            gap: 30px;
-        }
-
-        /* BARRA LATERAL IZQUIERDA (SIDEBAR) */
-        aside {
-            flex: 1;
-            background-color: var(--bg-tarjetas);
-            padding: 25px;
-            border-left: 5px solid var(--rojo-racing);
-            border-radius: 4px;
-            height: fit-content;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-
-        aside h2 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: var(--rojo-racing);
-            border-bottom: 2px solid #333;
-            padding-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        aside p {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--texto-gris);
-            margin-bottom: 25px;
-        }
-
-        aside ul {
-            list-style: none;
-        }
-
-        aside ul li {
-            margin-bottom: 12px;
-        }
-
-        aside ul li a {
-            color: var(--texto-blanco);
-            text-decoration: none;
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            transition: 0.3s;
-            display: block;
-            padding: 8px 12px;
-            background: #1c1c24;
-            border-radius: 3px;
-            cursor: pointer;
-            border: 1px solid transparent;
-        }
-
-        aside ul li a:hover, aside ul li a.activo {
-            background-color: var(--rojo-racing);
-            border-color: var(--borde-rojo);
-            padding-left: 18px;
-        }
-
-        /* SECCIÓN DE CONTENIDO PRINCIPAL */
-        main {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* PANTALLA DE BIENVENIDA */
-        .bienvenida {
-            background-color: var(--bg-tarjetas);
-            padding: 40px;
-            border-radius: 6px;
-            border: 1px dashed #333;
-            text-align: center;
-        }
-
-        .bienvenida h2 {
-            font-size: 2rem;
-            color: var(--texto-blanco);
-            margin-bottom: 10px;
-        }
-        
-        .bienvenida p {
-            font-family: 'Segoe UI', sans-serif;
-            color: var(--texto-gris);
-        }
-
-        /* REGLA CLAVE: ESCONDER LOS COCHES POR DEFECTO */
-        .tarjeta-coche {
-            display: none; /* Esto los oculta a todos al principio */
-            background-color: var(--bg-tarjetas);
-            border-radius: 6px;
-            overflow: hidden;
-            border: 1px solid #222;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-        }
-
-        /* CLASE PARA MOSTRAR EL COCHE SELECCIONADO */
-        .tarjeta-coche.mostrar {
-            display: block; /* Esto muestra solo el elegido */
-            animation: aparecer 0.4s ease-in-out;
-        }
-
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .imagen-coche {
-            width: 100%;
-            height: 480px;
-            object-fit: cover;
-            border-bottom: 4px solid var(--rojo-racing);
-        }
-
-        .info-coche {
-            padding: 30px;
-        }
-
-        .info-coche h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .descripcion-coche {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--texto-gris);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            font-size: 1.05rem;
-        }
-
-        /* TABLA DE ESPECIFICACIONES */
-        .tabla-specs {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .tabla-specs th, .tabla-specs td {
-            padding: 12px 15px;
-            text-align: left;
-        }
-
-        .tabla-specs th {
-            background-color: #1c1c24;
-            color: var(--rojo-racing);
-            font-family: 'Impact', sans-serif;
-            text-transform: uppercase;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--rojo-racing);
-        }
-
-        .tabla-specs tr:nth-child(even) {
-            background-color: #181820;
-        }
-
-        .tabla-specs td strong {
-            color: var(--texto-blanco);
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            .contenedor-web {
-                flex-direction: column;
-            }
-            header h1 {
-                font-size: 2.5rem;
-            }
-            .imagen-coche {
-                height: 250px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <header>
-        <h1>MÁS QUE <span>MOTORES</span></h1>
-    </header>
-
-    <div class="contenedor-web">
-
-        <aside>
-            <h2>Sobre la Web</h2>
-            <p>Bienvenido a <strong>Más que Motores</strong>, el rincón definitivo para los apasionados del motor y la cultura racing. Selecciona un modelo abajo para ver su ficha técnica completa.</p>
-            
-            <h2>Modelos Analizados</h2>
-            <ul>
-                <li><a onclick="verCoche('nissan-350z')" id="btn-nissan">Nissan 350Z</a></li>
-                <li><a onclick="verCoche('suzuki-samurai')" id="btn-suzuki">Suzuki Samurai</a></li>
-                <li><a onclick="verCoche('datsun-240z')" id="btn-datsun">Datsun 240Z</a></li>
-            </ul>
-        </aside>
-
-        <main>
-
-            <div id="pantalla-inicio" class="bienvenida">
-                <h2>🚥 LÍNEA DE SALIDA</h2>
-                <p>Haz clic izquierdo en cualquiera de los modelos del menú lateral para desplegar su información y fotografías.</p>
-            </div>
-
-            <article class="tarjeta-coche" id="nissan-350z">
-                <img src="nissan 350z.jfif" alt="Nissan 350Z Z33" class="imagen-coche">
-                <div class="info-coche">
-                    <h2>Nissan 350Z (Z33)</h2>
-                    <p class="descripcion-coche">Un icono del tuning mundial y el rey indiscutible del drift. El Nissan 350Z revivió la legendaria saga 'Z' a principios de los 2000 con una receta perfecta: motor delantero atmosférico, tracción trasera, un reparto de pesos ideal y una estética agresiva que enamoró a una generación entera.</p>
-                    
-                    <table class="tabla-specs">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Especificaciones Técnicas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Fabricación:</strong></td>
-                                <td>2002 – 2009 (Japón)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Motorización:</strong></td>
-                                <td>3.5L V6 Atmosférico (Motor VQ35DE / VQ35HR) - 287 a 313 CV</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Aceleración (0-100 km/h):</strong></td>
-                                <td>5.7 segundos</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio de salida (Lanzamiento):</strong></td>
-                                <td>Aprox. 35.000 € (Año 2003)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio actual de mercado:</strong></td>
-                                <td>Entre 12.000 € y 22.000 € (En constante revalorización)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-
-            <article class="tarjeta-coche" id="suzuki-samurai">
-                <img src="suzuki samurai.png" alt="Suzuki Samurai 4x4" class="imagen-coche">
-                <div class="info-coche">
-                    <h2>Suzuki Samurai</h2>
-                    <p class="descripcion-coche">Un titán del Off-Road en formato miniatura. El Suzuki Samurai demostró al mundo entero que no hace falta un todoterreno gigante y pesado para superar las rutas más extremas del planeta. Su ligereza, su robusto chasis de largueros y su tracción 4x4 conectable con reductora lo convierten en un juguete imparable.</p>
-                    
-                    <table class="tabla-specs">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Especificaciones Técnicas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Fabricación:</strong></td>
-                                <td>1985 – 2004 (Japón / España - Santana Motor)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Motorización:</strong></td>
-                                <td>1.3L de 4 cilindros en línea - 64 a 69 CV</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Aceleración (0-100 km/h):</strong></td>
-                                <td>16.8 segundos</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio de salida (Lanzamiento):</strong></td>
-                                <td>Aprox. 9.000 € (Equivalente en la época)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio actual de mercado:</strong></td>
-                                <td>Entre 4.000 € y 8.500 € (Muy cotizados por amantes del 4x4)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-
-            <article class="tarjeta-coche" id="datsun-240z">
-                <img src="darsun 240z.jpg" alt="Datsun 240Z Fairlady" class="imagen-coche">
-                <div class="info-coche">
-                    <h2>Datsun 240Z (Fairlady Z)</h2>
-                    <p class="descripcion-coche">El origen del mito. Lanzado a finales de los años 60, el Datsun 240Z rompió los esquemas del mercado norteamericano y europeo ofreciendo las prestaciones y la belleza de un deportivo clásico pero con la fiabilidad e ingeniería japonesa. Hoy en día es una codiciada obra de arte de colección.</p>
-                    
-                    <table class="tabla-specs">
-                        <thead>
-                            <tr>
-                                <th colspan="2">Especificaciones Técnicas</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Fabricación:</strong></td>
-                                <td>1969 – 1973 (Japón)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Motorización:</strong></td>
-                                <td>2.4L de 6 cilindros en línea (L24) - 151 CV</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Aceleración (0-100 km/h):</strong></td>
-                                <td>8.0 segundos</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio de salida (Lanzamiento):</strong></td>
-                                <td>Aprox. 3.500 $ (Año 1970)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Precio actual de mercado:</strong></td>
-                                <td>Entre 30.000 € y más de 60.000 € (Pieza de coleccionista pura)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </article>
-
-        </main>
-    </div>
-
-    <script>
-        function verCoche(idCoche) {
-            // 1. Ocultar el recuadro de bienvenida inicial
-            document.getElementById('pantalla-inicio').style.display = 'none';
-
-            // 2. Buscar todos los coches y quitarles la clase 'mostrar' para esconderlos
-            var todosLosCoches = document.querySelectorAll('.tarjeta-coche');
-            todosLosCoches.forEach(function(coche) {
-                coche.classList.remove('mostrar');
-            });
-
-            // 3. Quitar el color rojo de "activo" a todos los botones del menú
-            var todosLosBotones = document.querySelectorAll('aside ul li a');
-            todosLosBotones.forEach(function(boton) {
-                boton.classList.remove('activo');
-            });
-
-            // 4. Mostrar solo el coche que hemos pulsado
-            var cocheSeleccionado = document.getElementById(idCoche);
-            cocheSeleccionado.classList.add('mostrar');
-
-            // 5. Dejar el botón de la izquierda marcado en rojo para saber cuál estamos viendo
-            if(idCoche === 'nissan-350z') document.getElementById('btn-nissan').classList.add('activo');
-            if(idCoche === 'suzuki-samurai') document.getElementById('btn-suzuki').classList.add('activo');
-            if(idCoche === 'datsun-240z') document.getElementById('btn-datsun').classList.add('activo');
-        }
-    </script>
-
-</body>
-</html>
+<HTML>
+<HEAD>
+<TITLE>Más que Motores | Cultura Racing</TITLE>
+<meta charset="UTF-8">
+<meta name="author" content="Mario Bronchalo">
+<script>
+function mostrarCoche(idMostrar) {
+var secciones = ['bienvenida', 'nissan', 'suzuki', 'datsun'];
+for (var i = 0; i < secciones.length; i++) {
+document.getElementById(secciones[i]).style.display = 'none';
+}
+document.getElementById(idMostrar).style.display = 'block';
+}
+</script>
+</HEAD>
+<BODY bgcolor="#0a0a0c" text="#ffffff" style="margin:0; padding:0;">
+<div id="contenedorPagina" style="width:100%; height:100%;">
+<div id="contenedorCabecera" style="width:100%; height:18%; border-bottom:2px solid #ff2a35; float:left; background-color:Maroon; padding: 10px; text-align: center; box-sizing: border-box;">
+<H1 style="font-family: arial; margin: 0; font-size: 32px;">MÁS QUE MOTORES</H1>
+<div style="margin-top: 15px; font-family: arial; font-size: 16px;">
+<A href="#" onclick="mostrarCoche('nissan'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Nissan 350Z ]</B></A>
+<A href="#" onclick="mostrarCoche('suzuki'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Suzuki Samurai ]</B></A>
+<A href="#" onclick="mostrarCoche('datsun'); return false;" style="color: White; text-decoration: none; margin: 0 20px;"><B>[ Datsun 240Z ]</B></A>
+</div>
+</div>
+<div id="contenedorCuerpo" style="width:100%; height:82%; border:0px">
+<div id="contenedorIzqda" style="width:25%; height:100%; border:0px; float:left; padding: 15px; background-color: #141419; overflow-y: auto; box-sizing: border-box; text-align: center;">
+<p><IMG src="motor.jpg" width="100%" height="auto" alt="Motor" style="border: 1px solid #333;"></p>
+<H2 style="color: Red; font-family: arial; font-size: 18px; text-align: left;">Videos Recomendados</H2>
+<P style="font-family: arial; font-size: 13px; text-align: justify; color: #b3b3b3;">Reportajes brutales hechos por la comunidad:</P>
+<UL type="circle" style="padding-left: 15px; font-family: arial; font-size: 14px; text-align: left;">
+<LI style="margin-bottom: 20px;">
+<B>Para el Nissan:</B><BR>
+<A href="https://www.youtube.com/watch?v=MPRESYdHyUU" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver vídeo del 350Z</I></A>
+</LI>
+<LI style="margin-bottom: 20px;">
+<B>Para el Suzuki:</B><BR>
+<A href="https://www.youtube.com/watch?v=q8UN_G6G_VY" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver vídeo del Suzuki</I></A>
+</LI>
+<LI style="margin-bottom: 20px;">
+<B>Para el Datsun:</B><BR>
+<A href="https://www.youtube.com/watch?v=NetrSVI1GN8" target="_blank" style="color: Red; text-decoration: underline;"><I>Ver documental Datsun</I></A>
+</LI>
+</UL>
+</div>
+<div id="contenedorDcha" style="width:75%; height:100%; border:0px; float:left; padding: 20px; overflow-y: auto; box-sizing: border-box;">
+<div id="bienvenida" style="display: block; text-align: center; padding-top: 50px;">
+<H2 style="color: Red; font-family: arial; font-size: 32px;">¡BIENVENIDO A MÁS QUE MOTORES!</H2>
+<P style="font-family: arial; font-size: 18px; color: #b3b3b3; max-width: 600px; margin: 20px auto;">Cultura racing desde el origen. Selecciona cualquiera de los modelos del menú superior para ver su ficha técnica e historia individual.</P>
+</div>
+<div id="nissan" style="display: none;">
+<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Nissan 350Z</H2>
+<p style="text-align: center;"><IMG src="nissan 350z.jfif" width="600" height="auto" alt="Nissan 350Z" style="border: 2px solid #333;"></p>
+<P style="font-family: arial; font-size: 16px; text-align: justify;">Un icono del tuning mundial y el rey indiscutible del drift. El Nissan 350Z revivió la legendaria saga <I>'Z'</I> a principios de los 2000 con una receta perfecta: motor delantero atmosférico, tracción trasera y un reparto de pesos ideal.</P>
+<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
+<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Nissan</TH></TR>
+<TR><TD width="40%"><B>Motorización:</B></TD><TD>3.5L V6 Atmosférico (313 CV)</TD></TR>
+<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>5.7 segundos</TD></TR>
+<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 12.000 € y 22.000 €</TD></TR>
+</TABLE>
+</div>
+<div id="suzuki" style="display: none;">
+<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Suzuki Samurai</H2>
+<p style="text-align: center;"><IMG src="suzuki samurai.png" width="600" height="auto" alt="Suzuki Samurai" style="border: 2px solid #333;"></p>
+<P style="font-family: arial; font-size: 16px; text-align: justify;">Un titán del Off-Road en formato miniatura. El Suzuki Samurai demostró al mundo entero que no hace falta un todoterreno gigante y pesado para superar las rutas más extremas del planeta gracias a su ligereza y reductora.</P>
+<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
+<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Suzuki</TH></TR>
+<TR><TD width="40%"><B>Motorización:</B></TD><TD>1.3L de 4 cilindros en línea (69 CV)</TD></TR>
+<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>16.8 segundos</TD></TR>
+<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 4.000 € y 8.500 €</TD></TR>
+</TABLE>
+</div>
+<div id="datsun" style="display: none;">
+<H2 style="color: Red; font-family: arial; font-size: 28px; margin-top: 0;">Datsun 240Z</H2>
+<p style="text-align: center;"><IMG src="darsun 240z.jpg" width="600" height="auto" alt="Datsun 240Z" style="border: 2px solid #333;"></p>
+<P style="font-family: arial; font-size: 16px; text-align: justify;">El origen del mito. Lanzado a finales de los años 60, el Datsun 240Z rompió los esquemas del mercado ofreciendo las prestaciones y la belleza de un deportivo clásico con la fiabilidad e ingeniería japonesa.</P>
+<TABLE border="1" cellspacing="0" cellpadding="8" width="100%" style="font-family: arial; border-color: #333;">
+<TR bgcolor="Maroon"><TH colspan="2" align="center">Ficha Técnica - Datsun</TH></TR>
+<TR><TD width="40%"><B>Motorización:</B></TD><TD>2.4L de 6 cilindros en línea (151 CV)</TD></TR>
+<TR bgcolor="#1c1c24"><TD><B>Aceleración (0-100 km/h):</B></TD><TD>8.0 segundos</TD></TR>
+<TR><TD><B>Precio actual de mercado:</B></TD><TD>Entre 30.000 € y más de 60.000 €</TD></TR>
+</TABLE>
+</div>
+</div>
+</div>
+</div>
+</BODY>
+</HTML>
