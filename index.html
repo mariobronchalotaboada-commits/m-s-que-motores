@@ -1,73 +1,39 @@
-<HTML>
-<HEAD>
-<TITLE>Más que Motores</TITLE>
-<meta charset="UTF-8">
-<script>
-function ver(id) {
-var c = ['bienvenida','nissan','suzuki','datsun'];
-for(var i=0; i<c.length; i++) document.getElementById(c[i]).style.display='none';
-document.getElementById(id).style.display='block';
-}
-</script>
+<HTML><HEAD><TITLE>Más que Motores</TITLE><meta charset="UTF-8">
+<script>function ver(id){var c=['bienvenida','nissan','suzuki','datsun'];for(var i=0;i<4;i++)document.getElementById(c[i]).style.display=c[i]==id?'block':'none';}</script>
 </HEAD>
-<BODY bgcolor="white" text="black" style="margin:0; font-family:arial;">
-<div style="width:100%; background:red; color:white; text-align:center; padding:15px; box-sizing:border-box;">
-<H1 style="margin:0; font-size:28px;">MÁS QUE MOTORES</H1>
-<div style="margin-top:10px; font-size:15px;">
-<A href="#" onclick="ver('nissan'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Nissan 350Z ]</B></A>
-<A href="#" onclick="ver('suzuki'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Suzuki Samurai ]</B></A>
-<A href="#" onclick="ver('datsun'); return false;" style="color:white; text-decoration:none; margin:0 15px;"><B>[ Datsun 240Z ]</B></A>
-</div>
-</div>
+<BODY bgcolor="white" text="black" style="margin:0;font-family:arial;">
+<div style="width:100%;background:red;color:white;text-align:center;padding:10px;box-sizing:border-box;">
+<H1 style="margin:0;font-size:24px;">MÁS QUE MOTORES</H1>
+<div style="margin-top:5px;">
+<A href="#" onclick="ver('nissan');return false;" style="color:white;text-decoration:none;margin:0 10px;"><B>[ Nissan 350Z ]</B></A>
+<A href="#" onclick="ver('suzuki');return false;" style="color:white;text-decoration:none;margin:0 10px;"><B>[ Suzuki Samurai ]</B></A>
+<A href="#" onclick="ver('datsun');return false;" style="color:white;text-decoration:none;margin:0 10px;"><B>[ Datsun 240Z ]</B></A>
+</div></div>
 <div style="width:100%;">
-<div style="width:25%; float:left; padding:15px; background:#0a0a0c; color:white; box-sizing:border-box; text-align:center;">
-<p><IMG src="motor.jpg" width="100%" height="auto" style="border:1px solid #333;"></p>
-<H2 style="color:red; font-size:16px; text-align:left;">Videos</H2>
-<UL type="circle" style="padding-left:15px; text-align:left; font-size:13px;">
-<LI><A href="https://www.youtube.com/watch?v=MPRESYdHyUU" target="_blank" style="color:red;">Vídeo 350Z</A></LI>
-<LI><A href="https://www.youtube.com/watch?v=q8UN_G6G_VY" target="_blank" style="color:red;">Vídeo Suzuki</A></LI>
-<LI><A href="https://www.youtube.com/watch?v=NetrSVI1GN8" target="_blank" style="color:red;">Vídeo Datsun</A></LI>
-</UL>
+<div style="width:25%;float:left;padding:15px;background:#0a0a0c;color:white;box-sizing:border-box;text-align:center;">
+<p><IMG src="motor.jpg" width="100%"></p><H3 style="color:red;margin:0;">Videos</H3>
+<A href="https://youtu.be/MPRESYdHyUU" target="_blank" style="color:red;font-size:13px;">Vídeo 350Z</A><BR>
+<A href="https://youtu.be/q8UN_G6G_VY" target="_blank" style="color:red;font-size:13px;">Vídeo Suzuki</A><BR>
+<A href="https://youtu.be/NetrSVI1GN8" target="_blank" style="color:red;font-size:13px;">Vídeo Datsun</A>
 </div>
-<div style="width:75%; float:left; padding:25px; box-sizing:border-box;">
-<div id="bienvenida" style="display:block; text-align:center; padding-top:40px;">
-<H2 style="color:red; font-size:32px;">¡BIENVENIDO A MÁS QUE MOTORES!</H2>
-<P style="font-size:16px; max-width:550px; margin:20px auto;">Cultura racing desde el origen. Selecciona un modelo arriba para ver su ficha técnica.</P>
-</div>
+<div style="width:75%;float:left;padding:20px;box-sizing:border-box;">
+<div id="bienvenida" style="display:block;text-align:center;"><H2 style="color:red;">¡BIENVENIDO!</H2><P>Cultura racing. Selecciona un coche arriba.</P></div>
 <div id="nissan" style="display:none;">
-<H2 style="color:red; font-size:26px; margin:0;">Nissan 350Z</H2>
-<p style="text-align:center;"><IMG src="nissan 350z.jfif" width="550" height="auto" style="border:2px solid #333;"></p>
-<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Presentado a finales de 2002, este modelo revivió la mítica saga Z de Nissan. Se convirtió rápidamente en un icono global de la cultura del tuning, el drift y los videojuegos gracias a su tracción trasera y motor atmosférico.</P>
-<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
-<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Nissan</TH></TR>
-<TR><TD><B>Motorización:</B></TD><TD>3.5L V6 Atmosférico (313 CV)</TD></TR>
-<TR><TD><B>Precio Original (2003):</B></TD><TD>Desde 33.000 € (Versión básica de acceso)</TD></TR>
-<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>12.000 € - 22.000 € (Usado en revalorización)</TD></TR>
-</TABLE>
-</div>
+<H2 style="color:red;margin:0;">Nissan 350Z</H2><IMG src="nissan 350z.jfif" width="450">
+<P><B>Historia:</B> Icono de 2002 que revivió la saga Z con motor V6 atmosférico y tracción trasera.</P>
+<TABLE border="1" width="100%"><TR bgcolor="red" style="color:white;"><TH colspan="2">Datos y Precios</TH></TR>
+<TR><TD><B>Velocidad Máxima:</B></TD><TD>250 km/h</TD></TR><TR><TD><B>Precio Salida (2003):</B></TD><TD>Desde 33.000 € (Base)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>12.000 € - 22.000 € (Usado)</TD></TR></TABLE></div>
 <div id="suzuki" style="display:none;">
-<H2 style="color:red; font-size:26px; margin:0;">Suzuki Samurai</H2>
-<p style="text-align:center;"><IMG src="suzuki samurai.png" width="550" height="auto" style="border:2px solid #333;"></p>
-<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Lanzado originalmente en 1985 como evolución del SJ413, este pequeño todoterreno demostró que la ligereza y una buena reductora valían más que un tamaño gigante para superar terrenos extremos.</P>
-<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
-<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Suzuki</TH></TR>
-<TR><TD><B>Motorización:</B></TD><TD>1.3L de 4 cilindros (69 CV)</TD></TR>
-<TR><TD><B>Precio Original (Años 80/90):</B></TD><TD>Aprox. 9.000 € (Equivalente al cambio en su época)</TD></TR>
-<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>4.000 € - 8.500 € (Clásico cotizado)</TD></TR>
-</TABLE>
-</div>
+<H2 style="color:red;margin:0;">Suzuki Samurai</H2><IMG src="suzuki samurai.png" width="450">
+<P><B>Historia:</B> Todoterreno de 1985 imbatible en rutas extremas gracias a su ligereza y reductora.</P>
+<TABLE border="1" width="100%"><TR bgcolor="red" style="color:white;"><TH colspan="2">Datos y Precios</TH></TR>
+<TR><TD><B>Velocidad Máxima:</B></TD><TD>130 km/h</TD></TR><TR><TD><B>Precio Salida (Años 80):</B></TD><TD>Aprox. 9.000 € (Equivalente)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>4.000 € - 8.500 € (Clásico)</TD></TR></TABLE></div>
 <div id="datsun" style="display:none;">
-<H2 style="color:red; font-size:26px; margin:0;">Datsun 240Z</H2>
-<p style="text-align:center;"><IMG src="darsun 240z.jpg" width="550" height="auto" style="border:2px solid #333;"></p>
-<P style="font-size:15px; text-align:justify;"><B>Historia:</B> Introducido en noviembre de 1969, rompió los esquemas del mercado internacional al ofrecer la silueta y potencia de deportivos europeos caros con el precio y la robustez de la ingeniería japonesa.</P>
-<TABLE border="1" cellspacing="0" cellpadding="6" width="100%" style="border-color:#333;">
-<TR bgcolor="red" style="color:white;"><TH colspan="2">Ficha Técnica - Datsun</TH></TR>
-<TR><TD><B>Motorización:</B></TD><TD>2.4L de 6 cilindros en línea (151 CV)</TD></TR>
-<TR><TD><B>Precio Original (1970):</B></TD><TD>Aprox. 3.500 $ (Lanzamiento en EE.UU.)</TD></TR>
-<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>30.000 € - 60.000 € (Pieza de colección histórica)</TD></TR>
-</TABLE>
-</div>
-</div>
-</div>
-</BODY>
-</HTML>
+<H2 style="color:red;margin:0;">Datsun 240Z</H2><IMG src="darsun 240z.jpg" width="450">
+<P><B>Historia:</B> Deportivo de 1969 que unió la estética clásica europea con la robusta mecánica nipona.</P>
+<TABLE border="1" width="100%"><TR bgcolor="red" style="color:white;"><TH colspan="2">Datos y Precios</TH></TR>
+<TR><TD><B>Velocidad Máxima:</B></TD><TD>200 km/h</TD></TR><TR><TD><B>Precio Salida (1970):</B></TD><TD>Aprox. 3.500 $ (EE.UU.)</TD></TR>
+<TR><TD><B>Precio Actual (Mercado):</B></TD><TD>30.000 € - 60.000 € (Colección)</TD></TR></TABLE></div>
+</div></div></BODY></HTML>
